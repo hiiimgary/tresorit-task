@@ -1,27 +1,27 @@
-# ChatappInterview
+# Tresorit - Secure Communication
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.5.
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Használt technológiák
 
-## Code scaffolding
+-  Front-end: Angular  9.1
+-  Backend: NodeJS
+-  Kommunikáció: Socket.io 
+    - OK: Egyszerű kommunikáció a kliensek között.
+-  Titkosítás: CryptoJS
+    - OK: A library támogatja az AES256 CFB-t, illetve a HMAC SHA1-et. Nem kellett külön IV-et, salt-ot számolni, mert a lib automatikusan megcsinálja.
+-  Extra: ngx-clipboard
+    - OK: Gombnyomásra vágólapra tud másolni szöveget
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Megvalósítás
 
-## Build
+- A specifikációt követve a CryptoJS segítségével generáltam 256bites kulcsot. A biztonság érdekében 2-t is generáltam. Az egyik segítségével titkosításra kerül az üzenet, a másik segítségével pedig biztosítva van az integritásvédelem. 
+- Ezután a fogadó félnek elküldődik az üzenet, illetve a HMAC. 
+- A fogadó fél a kulcs segítségével kiszámolja újra a hash-t és ha az megegyezik a kapott hash-el akkor kititkosítja az üzenetet és megjeleníti a képernyőn.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## TODO
 
-## Running unit tests
+-   Enter küldés implementálása
+-   Mivel a feladatkiírás szerint egy időben csak 1 küldő és egy fogadó félre kell felkészülni, ezért a Specifikációnak megfelel az alkalmazás. Ha tovább kellene fejleszteni, akkor a szerver oldali kommunikációt szükséges javítani, ugyanis esetleges több fél kommunikációja közben minden fogadónak minden módosítást elküld az alkalmazás és csak kliens oldalon kerül eldobásra a felesleges információt.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
