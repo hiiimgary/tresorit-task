@@ -1,0 +1,29 @@
+div{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    .sender-page{
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 10px;
+        nav{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            button{
+                height: 35px;
+            }
+        }
+        textarea{
+            resize: none;
+            width: 100%;
+            height: 80%;
+            font-family: 'Courier New', Courier, monospace;
+            
+        }
+    }
+}

@@ -1,0 +1,10 @@
+<div>
+    <main class="sender-page">
+        <nav>
+            <h2>Security is key</h2>
+            <p>{{ filename }}</p>
+            <button (click)='copyKey()'>Copy link</button>
+        </nav>
+        <textarea [(ngModel)]='message' (keyup)='type()'></textarea>
+    </main>
+</div>

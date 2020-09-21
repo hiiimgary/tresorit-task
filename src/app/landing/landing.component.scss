@@ -1,0 +1,33 @@
+div{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    .landing-page{
+        display: flex;
+        align-items: center;
+        div{
+            background-color: #22254b;
+            border-radius: 8px;
+            height: fit-content;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            h2{
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            input{
+                &::placeholder{
+                    color: white;
+                }
+                margin-bottom: 10px;
+                outline: none;
+                background-color: #22254b;
+                border: 1px solid #f3f4f5;
+                border-radius: 5px;
+                padding: 5px;
+            }
+        }
+
+    }
+}
